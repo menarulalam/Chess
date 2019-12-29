@@ -1,0 +1,70 @@
+/*
+	public static int[] minimax(int alpha, int beta, Board b, boolean isWhite, int depth) {
+		k++; System.out.println("Depth: "+depth);
+	
+
+		if (depth == 0 || Math.abs(b.getSum()) > 999) {  Base Case
+			int[] ans = new int[] { b.getSum(), b.getLastMove()[0], b.getLastMove()[1], b.getLastMove()[2],
+					b.getLastMove()[3] };
+			System.out.println("Terminating node with value: "+b.getSum()+" and moveset: "+ans[1]+","+ans[2]+"=>"+ans[3]+","+ans[4]+" and isWhite? "+isWhite);
+			if (ans[3]==-1)
+			{
+				if (ans[1]==1)
+				{
+					ans[3]=0;
+				}
+				else
+				{
+					ans[3]=7;
+				}
+			}
+		
+			return ans;
+		}
+		
+		
+		ArrayList<ArrayList<Integer>> a = b.getAllMoves(isWhite); 
+		if (isWhite) {
+			int [] ans = new int[]{Integer.MIN_VALUE,0,0,0,0};
+		for (int j = 0; j < a.size(); j++) {
+			ArrayList<Integer> c = a.get(j); System.out.println(c);
+			for (int i = 2; i < c.size()-1; i += 2) {
+				int[] moveset = { c.get(0), c.get(1), c.get(i), c.get(i + 1) }; // Set of moves being tested
+				Board q=b.tryMove(moveset);
+				int[] node = new int[] { minimax(alpha, beta, q, !isWhite, depth-1)[0], moveset[0], moveset[1],
+						moveset[2], moveset[3]};
+				b.undo();
+				if (ans[0]<node[0])
+				{
+					ans=node.clone();
+				}
+				alpha=(int) Math.max(alpha, node[0]);
+				if (alpha>=beta) {return node;}
+						
+					}
+				}
+		return ans;
+			}
+		else {
+			int [] ans = new int[]{Integer.MAX_VALUE,0,0,0,0};
+			for (int j = 0; j < a.size(); j++) {
+				ArrayList<Integer> c = a.get(j); System.out.println(c);
+				for (int i = 2; i < c.size() - 1; i += 2) {
+					int[] moveset = { c.get(0), c.get(1), c.get(i), c.get(i + 1) }; // Set of moves being tested
+					Board q=b.tryMove(moveset);
+					int[] node = new int[] { minimax(alpha, beta, q, !isWhite, depth-1)[0], moveset[0], moveset[1],
+							moveset[2], moveset[3]};
+					b.undo();
+					if (ans[0]>node[0])
+					{
+						ans=node.clone();
+					}
+					beta=(int) Math.min(beta, node[0]);
+				if (alpha>=beta) {return node;}
+						}
+					}
+			return ans;
+				}
+		
+
+	} */
